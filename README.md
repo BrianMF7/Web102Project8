@@ -1,38 +1,82 @@
-# Crewmate Creator
+# Web Development Project 7 - *Welcome to the Crewmate Us!
+*
 
-A React application that allows users to create, view, update, and delete virtual crewmates. This project demonstrates CRUD operations using React and Supabase as the backend.
+Submitted by: **Brian Martinez Flores**
 
-## Features
+This web app: **Welcome to the Crewmate Us!
+Send your crewmates to space, here to go!!! View the crewmates that are going to space, and add/edit any crewmates you added.**
 
-- Create new crewmates with custom names, speeds, and colors
-- View all created crewmates in a gallery
-- See detailed information about each crewmate
-- Edit existing crewmates
-- Delete crewmates
-- Responsive design
+Time spent: **6** hours spent in total
 
-## Technologies Used
+## Required Features
 
-- React
-- React Router for navigation
-- Supabase for backend services
-- CSS for styling
+The following **required** functionality is completed:
 
-## Setup Instructions
 
-1. Clone the repository
-2. Install dependencies with `npm install`
-3. Create a Supabase account and project
-4. Update the `.env` file with your Supabase URL and anon key
-5. Run the development server with `npm run dev`
+- [ ✔] **The web app contains a page that features a create form to add a new crewmate**
+  - Users can name the crewmate
+  - Users can set the crewmate’s attributes by clicking on one of several values
+- [✔ ] **The web app includes a summary page of all the user’s added crewmatese**
+  -  The web app contains a summary page dedicated to displaying all the crewmates the user has made so far
+  -  The summary page is sorted by creation date such that the most recently created crewmates appear at the top
+- [✔ ] **A previously created crewmate can be updated from the list of crewmates in the summary page**
+  - Each crewmate has an edit button that will take users to an update form for the relevant crewmate
+  - Users can see the current attributes of their crewmate on the update form
+  - After editing the crewmate's attribute values using the form, the user can immediately see those changes reflected in the update form and on the summary page 
+- [ ✔] **A previously created crewmate can be deleted from the crewmate list**
+  - Using the edit form detailed in the previous _crewmates can be updated_ feature, there is a button that allows users to delete that crewmate
+  - After deleting a crewmate, the crewmate should no longer be visible in the summary page
+  - [✔ ] **Each crewmate has a direct, unique URL link to an info page about them**
+    - Clicking on a crewmate in the summary page navigates to a detail page for that crewmate
+    - The detail page contains extra information about the crewmate not included in the summary page
+    - Users can navigate to to the edit form from the detail page
 
-## Database Setup
+The following **optional** features are implemented:
 
-Create a table in Supabase called `Posts` with the following columns:
+- [ ✔] A crewmate can be given a category upon creation which restricts their attribute value options
+  - e.g., a Dungeons and Dragons class or a development team role (project manager, product owner, etc.)
+  - User can choose a `category` option to describe their crewmate before any attributes are specified
+  - Based on the category value, users are allowed to access only a subset of the possible attributes
+- [✔ ] A section of the summary page, displays summary statistics about a user’s crew on their crew page
+  - e.g., the percent of members with a certain attribute 
+- [ ✔] The summary page displays a custom “success” metric about a user’s crew which changes the look of the crewmate list
+  - e.g., a pirate crew’s predicted success at commandeering a new galley
 
-- id (UUID) - Primary key
-- name (String) - The crewmate's name
-- speed (Number) - The crewmate's speed
-- color (String) - The crewmate's color
-- createCrewMate (Boolean) - Whether this is a crewmate post
-- created_at (Timestamp) - When the record was created
+
+The following **additional** features are implemented:
+
+* [ ] List anything else that you added to improve the site's functionality!
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://imgur.com/a/project8web102-ZOAQacS' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with ...  
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
+
+## Notes
+
+Describe any challenges encountered while building the app:
+Supabase went smooth but needed more documentations to get through it. The CSS has always been the challenge but fixing the bugs and making it responsive worked.
+
+## License
+
+    Copyright [2025] [Among Us]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
