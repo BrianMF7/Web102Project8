@@ -28,10 +28,11 @@ A React application that allows users to create, view, update, and delete virtua
 
 ## Database Setup
 
-Create a table in Supabase called `crewmates` with the following columns:
+Create a table in Supabase called `Posts` with the following columns:
 
 - id (UUID) - Primary key
 - name (String) - The crewmate's name
 - speed (Number) - The crewmate's speed
 - color (String) - The crewmate's color
-- created_at (Timestamp) - When the crewmate was created
+- createCrewMate (Boolean) - Whether this is a crewmate post
+- created_at (Timestamp) - When the record was created

@@ -8,6 +8,7 @@ const CreateCrewmate = () => {
   const [speed, setSpeed] = useState('');
   const [color, setColor] = useState('');
   const [formError, setFormError] = useState(null);
+  const [loading, setLoading] = useState(false);
   
   const navigate = useNavigate();
   
@@ -21,19 +22,37 @@ const CreateCrewmate = () => {
       return;
     }
     
-    const { data, error } = await supabase
-      .from('crewmates')
-      .insert([{ name, speed, color, created_at: new Date() }])
-      .select();
-    
-    if (error) {
-      setFormError('Error creating crewmate. Please try again.');
-      console.error(error);
-    }
-    
-    if (data) {
+    try {
+      setLoading(true);
+      setFormError(null);
+      
+      const crewmateData = {
+        name: name.trim(),
+        speed: parseFloat(speed),
+        color: color,
+        createCrewMate: true 
+      };
+      
+      console.log('Creating crewmate with data:', crewmateData);
+      
+      const { error } = await supabase
+        .from('Posts')
+        .insert([crewmateData]);
+      
+      if (error) {
+        console.error('Error creating crewmate:', error);
+        setFormError(`Database error: ${error.message} (Code: ${error.code})`);
+        return;
+      }
+      
       setFormError(null);
       navigate('/gallery');
+      
+    } catch (err) {
+      console.error('Exception during crewmate creation:', err);
+      setFormError(`An unexpected error occurred: ${err.message}`);
+    } finally {
+      setLoading(false);
     }
   };
   
@@ -87,8 +106,11 @@ const CreateCrewmate = () => {
         </div>
         
         {formError && <div className="error">{formError}</div>}
+        {loading && <div className="loading">Creating crewmate...</div>}
         
-        <button className="create-button">Create Crewmate</button>
+        <button className="create-button" disabled={loading}>
+          {loading ? 'Creating...' : 'Create Crewmate'}
+        </button>
       </form>
     </div>
   );

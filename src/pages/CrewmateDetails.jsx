@@ -14,9 +14,10 @@ const CrewmateDetails = () => {
       setLoading(true);
       
       const { data, error } = await supabase
-        .from('crewmates')
+        .from('Posts')
         .select('*')
         .eq('id', id)
+        .eq('createCrewMate', true) 
         .single();
         
       if (error) {

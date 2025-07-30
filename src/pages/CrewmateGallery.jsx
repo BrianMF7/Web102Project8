@@ -10,8 +10,9 @@ const CrewmateGallery = () => {
   useEffect(() => {
     const fetchCrewmates = async () => {
       const { data, error } = await supabase
-        .from('crewmates')
+        .from('Posts')
         .select('*')
+        .eq('createCrewMate', true) 
         .order('created_at', { ascending: false });
         
       if (error) {
@@ -21,6 +22,7 @@ const CrewmateGallery = () => {
       }
       
       if (data) {
+        console.log('Data from Supabase:', data);
         setCrewmates(data);
         setFetchError(null);
       }

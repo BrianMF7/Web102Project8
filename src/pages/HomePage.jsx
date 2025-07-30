@@ -3,8 +3,8 @@ import './HomePage.css';
 const HomePage = () => {
   return (
     <div className="home-container">
-      <h1>Welcome to the Crewmate Creator!</h1>
-      <p>Here is where you can create your very own set of crewmates before sending them off into space!</p>
+      <h1>Welcome to the Crewmate Us!</h1>
+      <p>Send your crewmates to space, here to go!!!</p>
       
       <div className="images-container">
         <img 

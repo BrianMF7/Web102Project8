@@ -20,9 +20,10 @@ const UpdateCrewmate = () => {
       setLoading(true);
       
       const { data, error } = await supabase
-        .from('crewmates')
+        .from('Posts')
         .select('*')
         .eq('id', id)
+        .eq('createCrewMate', true) 
         .single();
         
       if (error) {
@@ -51,8 +52,8 @@ const UpdateCrewmate = () => {
     }
     
     const { error } = await supabase
-      .from('crewmates')
-      .update({ name, speed, color })
+      .from('Posts')
+      .update({ name, speed, color, createCrewMate: true })
       .eq('id', id);
     
     if (error) {
@@ -66,7 +67,7 @@ const UpdateCrewmate = () => {
   
   const handleDelete = async () => {
     const { error } = await supabase
-      .from('crewmates')
+      .from('Posts')
       .delete()
       .eq('id', id);
     

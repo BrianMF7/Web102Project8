@@ -81,6 +81,11 @@
   margin-top: 10px;
 }
 
+.loading {
+  color: white;
+  margin-top: 10px;
+}
+
 .create-crewmate-image {
   max-width: 200px;
   display: block;
